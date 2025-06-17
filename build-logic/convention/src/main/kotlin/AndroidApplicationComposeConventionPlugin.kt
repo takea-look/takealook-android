@@ -1,5 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.easternkite.takealook.configureAndroidCompose
+import com.easternkite.takealook.configureHilt
 import com.easternkite.takealook.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -16,6 +17,7 @@ class AndroidApplicationComposeConventionPlugin : Plugin<Project> {
             val extension = extensions.getByType<ApplicationExtension>()
             configureAndroidCompose(extension)
             configureKotlinAndroid()
+            configureHilt()
         }
     }
 }
