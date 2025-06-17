@@ -53,4 +53,5 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 # Convention Plugins
 takealook-android-application-compose = { id = "takealook.android.application.compose" }
 takealook-android-library-compose = { id = "takealook.android.library.compose" }
+takealook-feature-module = { id = "takealook.feature.module" }
 
