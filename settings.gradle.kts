@@ -23,4 +23,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "takealook-android"
 include(":app")
- 
+
+include(":core:designsystem")

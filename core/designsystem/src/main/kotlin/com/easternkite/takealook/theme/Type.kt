@@ -1,4 +1,4 @@
-package com.easternkite.takealook.ui.theme
+package com.easternkite.takealook.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
