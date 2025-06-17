@@ -1,6 +1,7 @@
 package com.easternkite.takealook
 
 import com.android.build.api.dsl.ApplicationExtension
+import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -9,9 +10,11 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 
-internal fun Project.configureKotlinAndroid() {
+internal fun Project.configureKotlinAndroid(
+    commonExtension: CommonExtension<*, *, *, *, *, *>,
+) {
     // Android Kotlin Library Plugin
-    extensions.configure<ApplicationExtension> {
+    commonExtension.apply {
         namespace = libs.findVersion("namespace").get().toString()
         compileSdk = libs.findVersion("compileSdk").get().toString().toInt()
 
