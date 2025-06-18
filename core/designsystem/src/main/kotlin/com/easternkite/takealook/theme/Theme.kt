@@ -48,7 +48,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Primary80,
+    primary = Primary40,
     onPrimary = Primary100,
     primaryContainer = Primary90,
     onPrimaryContainer = Primary30,
@@ -89,7 +89,7 @@ private val LightColorScheme = lightColorScheme(
 fun TklTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
