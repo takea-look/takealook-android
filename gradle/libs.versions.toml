@@ -16,6 +16,7 @@ activityCompose = "1.10.1"
 composeBom = "2025.06.00"
 hilt = "2.56.2"
 ksp = "2.1.21-2.0.2"
+coil = "3.2.0"
 
 nav3Core = "1.0.0-alpha03"
 lifecycleViewmodelNav3 = "1.0.0-alpha01"
@@ -51,6 +52,10 @@ androidx-material3-adaptive-navigation3 = { group = "androidx.compose.material3.
 
 # Kotlin Serialization
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }
+
+# Coil
+coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 
 # :build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }

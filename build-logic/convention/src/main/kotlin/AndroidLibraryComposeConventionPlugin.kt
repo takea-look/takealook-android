@@ -1,6 +1,7 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.LibraryExtension
 import com.easternkite.takealook.configureAndroidCompose
+import com.easternkite.takealook.configureCoil
 import com.easternkite.takealook.configureHilt
 import com.easternkite.takealook.configureKotlinAndroid
 import org.gradle.api.Plugin
@@ -19,6 +20,7 @@ class AndroidLibraryComposeConventionPlugin : Plugin<Project> {
             configureAndroidCompose(extension)
             configureKotlinAndroid(extension)
             configureHilt()
+            configureCoil()
         }
     }
 }
