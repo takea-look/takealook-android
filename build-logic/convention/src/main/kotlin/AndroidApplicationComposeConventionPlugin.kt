@@ -2,6 +2,7 @@ import com.android.build.api.dsl.ApplicationExtension
 import com.easternkite.takealook.configureAndroidCompose
 import com.easternkite.takealook.configureHilt
 import com.easternkite.takealook.configureKotlinAndroid
+import com.easternkite.takealook.configureNavigation3
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
@@ -18,6 +19,7 @@ class AndroidApplicationComposeConventionPlugin : Plugin<Project> {
             configureAndroidCompose(extension)
             configureKotlinAndroid(extension)
             configureHilt()
+            configureNavigation3()
         }
     }
 }

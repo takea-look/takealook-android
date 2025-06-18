@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.hilt) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
+
     alias(libs.plugins.takealook.android.application.compose) apply false
     alias(libs.plugins.takealook.android.library.compose) apply false
     alias(libs.plugins.takealook.feature.module) apply false
