@@ -1,5 +1,5 @@
-import com.easternkite.takealook.configureCoil
-import com.easternkite.takealook.configureNavigation3
+import my.takealook.configureCoil
+import my.takealook.configureNavigation3
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
