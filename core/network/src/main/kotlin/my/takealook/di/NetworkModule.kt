@@ -1,10 +1,10 @@
-package com.easternkite.takealook.di
+package my.takealook.di
 
-import com.easternkite.takealook.TklApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import my.takealook.TklApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

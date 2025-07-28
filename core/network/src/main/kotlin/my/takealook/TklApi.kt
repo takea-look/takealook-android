@@ -2,7 +2,7 @@ package my.takealook
 
 import my.takealook.model.StickerCategoryResult
 import my.takealook.model.StickerResult
-import de.jensklingenberg.ktorfit.http.GET
+import retrofit2.http.GET
 
 interface TklApi {
 
