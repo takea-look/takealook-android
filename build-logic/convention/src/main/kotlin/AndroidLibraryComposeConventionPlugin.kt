@@ -1,9 +1,8 @@
-import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.LibraryExtension
-import com.easternkite.takealook.configureAndroidCompose
-import com.easternkite.takealook.configureCoil
-import com.easternkite.takealook.configureHilt
-import com.easternkite.takealook.configureKotlinAndroid
+import my.takealook.configureAndroidCompose
+import my.takealook.configureCoil
+import my.takealook.configureHilt
+import my.takealook.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
