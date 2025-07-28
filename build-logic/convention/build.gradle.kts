@@ -34,6 +34,10 @@ gradlePlugin {
             id = "takealook.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
+        create("takealook.android.library") {
+            id = "takealook.android.library"
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
         create("takealook.feature.module") {
             id = "takealook.feature.module"
             implementationClass = "FeatureModuleConventionPlugin"

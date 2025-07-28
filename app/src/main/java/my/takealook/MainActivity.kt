@@ -11,8 +11,19 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.entry
+import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.runtime.rememberNavBackStack
+import androidx.navigation3.ui.NavDisplay
 import my.takealook.theme.TklTheme
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.serialization.Serializable
+import my.takealook.editor.navigation.EditorScreenRoute
+import my.takealook.editor.navigation.editorScreenRoute
+
+@Serializable
+data object Main : NavKey
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -22,10 +33,20 @@ class MainActivity : ComponentActivity() {
         setContent {
             TklTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                    val backStack = rememberNavBackStack(EditorScreenRoute(imageUrl = "https://img.takealook.my/cat.jpeg"))
+                    NavDisplay(
+                        modifier = Modifier.padding(innerPadding),
+                        backStack = backStack,
+                        onBack = { backStack.removeLastOrNull() },
+                        entryProvider = entryProvider {
+                            entry<Main> {
+                                Greeting("Android")
+                            }
+
+                            editorScreenRoute()
+                        }
                     )
+
                 }
             }
         }

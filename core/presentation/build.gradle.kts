@@ -3,5 +3,5 @@ plugins {
 }
 
 dependencies {
-    implementation(libs.bundles.retrofit)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 }

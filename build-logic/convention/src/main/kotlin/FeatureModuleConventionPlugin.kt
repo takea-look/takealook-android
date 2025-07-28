@@ -8,6 +8,10 @@ class FeatureModuleConventionPlugin : Plugin<Project> {
         with(target) {
             val designSystem = project(":core:designsystem")
             dependencies.add("implementation", designSystem)
+
+            val presentation = project(":core:presentation")
+            dependencies.add("implementation", presentation)
+
             configureNavigation3()
             configureCoil()
         }

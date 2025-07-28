@@ -11,4 +11,6 @@ fun Project.configureHilt() {
     dependencies.add("implementation", hilt)
     val hiltCompiler = libs.findLibrary("hilt-compiler").get()
     dependencies.add("ksp", hiltCompiler)
+    val navigationCompose = libs.findLibrary("hilt-navigation-compose").get()
+    dependencies.add("implementation", navigationCompose)
 }
