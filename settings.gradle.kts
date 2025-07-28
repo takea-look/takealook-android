@@ -26,3 +26,8 @@ include(":app")
 
 include(":core:designsystem")
 include(":core:network")
+include(":core:data")
+include(":core:domain")
+include(":core:presentation")
+
+include("feature:editor")

@@ -28,6 +28,9 @@ dependencies {
     implementation(projects.core.designsystem)
     implementation(projects.core.network)
 
+    // Feature
+    implementation(projects.feature.editor)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

@@ -9,5 +9,6 @@ plugins {
 
     alias(libs.plugins.takealook.android.application.compose) apply false
     alias(libs.plugins.takealook.android.library.compose) apply false
+    alias(libs.plugins.takealook.android.library) apply false
     alias(libs.plugins.takealook.feature.module) apply false
 }
