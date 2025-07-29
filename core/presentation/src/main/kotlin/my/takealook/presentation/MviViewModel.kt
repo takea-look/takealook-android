@@ -14,8 +14,8 @@ import kotlinx.coroutines.flow.stateIn
 abstract class MviViewModel<ACTION : UiAction, STATE : UiState, EFFECT : SideEffect>(
     initialState: STATE
 ): ViewModel() {
-    private val actionChannel = Channel<ACTION>(Channel.Factory.BUFFERED)
-    private val effectChannel = Channel<EFFECT>(Channel.Factory.BUFFERED)
+    private val actionChannel = Channel<ACTION>(Channel.Factory.CONFLATED)
+    private val effectChannel = Channel<EFFECT>(Channel.Factory.CONFLATED)
 
     val effect = effectChannel
         .receiveAsFlow()
