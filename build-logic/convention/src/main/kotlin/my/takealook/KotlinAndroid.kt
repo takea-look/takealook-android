@@ -13,6 +13,10 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 internal fun Project.configureKotlinAndroid(
     commonExtension: CommonExtension<*, *, *, *, *, *>,
 ) {
+    with(pluginManager) {
+        apply("org.jetbrains.kotlin.plugin.serialization")
+    }
+
     // Android Kotlin Library Plugin
     commonExtension.apply {
         namespace = libs.findVersion("namespace").get().toString()
@@ -29,6 +33,12 @@ internal fun Project.configureKotlinAndroid(
 
         dependencies {
             add("testImplementation", libs.findLibrary("junit").get())
+
+            val serialization = libs.findLibrary("kotlinx-serialization-core").get()
+            add("implementation", serialization)
+
+            val serializationJson = libs.findLibrary("kotlinx-serialization-json").get()
+            add("implementation", serializationJson)
         }
     }
     configureKotlin<KotlinAndroidProjectExtension>()

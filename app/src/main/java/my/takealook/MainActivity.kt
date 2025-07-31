@@ -7,12 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation3.runtime.NavKey
-import androidx.navigation3.runtime.entry
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
@@ -21,9 +17,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.serialization.Serializable
 import my.takealook.editor.navigation.EditorScreenRoute
 import my.takealook.editor.navigation.editorScreenRoute
+import my.takealook.login.navigation.LoginRoute
+import my.takealook.login.navigation.loginRoute
 
 @Serializable
 data object Main : NavKey
+
+@Serializable
+data class AA(val a: Int)
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -33,16 +34,18 @@ class MainActivity : ComponentActivity() {
         setContent {
             TklTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    val backStack = rememberNavBackStack(EditorScreenRoute(imageUrl = "https://img.takealook.my/cat.jpeg"))
+                    val backStack = rememberNavBackStack(LoginRoute)
+
                     NavDisplay(
                         modifier = Modifier.padding(innerPadding),
                         backStack = backStack,
                         onBack = { backStack.removeLastOrNull() },
                         entryProvider = entryProvider {
-                            entry<Main> {
-                                Greeting("Android")
-                            }
-
+                            loginRoute(
+                                onSignInSuccess = {
+                                    backStack.add(EditorScreenRoute(imageUrl = "https://img.takealook.my/cat.jpeg"))
+                                }
+                            )
                             editorScreenRoute()
                         }
                     )
@@ -50,21 +53,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    TklTheme {
-        Greeting("Android")
     }
 }

@@ -30,6 +30,7 @@ dependencies {
 
     // Feature
     implementation(projects.feature.editor)
+    implementation(projects.feature.login)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

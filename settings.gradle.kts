@@ -31,3 +31,4 @@ include(":core:domain")
 include(":core:presentation")
 
 include("feature:editor")
+include("feature:login")
