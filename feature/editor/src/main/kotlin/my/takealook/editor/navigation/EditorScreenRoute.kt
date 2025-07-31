@@ -1,6 +1,8 @@
 package my.takealook.editor.navigation
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.EntryProviderBuilder
 import androidx.navigation3.runtime.NavKey
@@ -17,7 +19,9 @@ data class EditorScreenRoute(
 fun EntryProviderBuilder<NavKey>.editorScreenRoute() {
     entry<EditorScreenRoute> {
         EditorScreen(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background),
             onImageCaptured = {},
             mainContent = {
                 AsyncImage(

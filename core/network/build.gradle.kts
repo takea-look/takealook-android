@@ -3,5 +3,5 @@ plugins {
 }
 
 dependencies {
-    implementation(libs.bundles.retrofit)
+    api(libs.bundles.retrofit)
 }
