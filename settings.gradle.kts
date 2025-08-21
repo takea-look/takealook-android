@@ -32,3 +32,4 @@ include(":core:presentation")
 
 include("feature:editor")
 include("feature:login")
+include("feature:chat")
