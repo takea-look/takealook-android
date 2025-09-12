@@ -31,6 +31,7 @@ dependencies {
     // Feature
     implementation(projects.feature.editor)
     implementation(projects.feature.login)
+    implementation(projects.feature.rooms)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

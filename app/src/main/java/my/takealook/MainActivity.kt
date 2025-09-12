@@ -14,17 +14,11 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import my.takealook.theme.TklTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.serialization.Serializable
-import my.takealook.editor.navigation.EditorScreenRoute
 import my.takealook.editor.navigation.editorScreenRoute
 import my.takealook.login.navigation.LoginRoute
 import my.takealook.login.navigation.loginRoute
-
-@Serializable
-data object Main : NavKey
-
-@Serializable
-data class AA(val a: Int)
+import my.takealook.rooms.navigation.RoomsRoute
+import my.takealook.rooms.navigation.roomsRoute
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -43,13 +37,13 @@ class MainActivity : ComponentActivity() {
                         entryProvider = entryProvider {
                             loginRoute(
                                 onSignInSuccess = {
-                                    backStack.add(EditorScreenRoute(imageUrl = "https://img.takealook.my/cat.jpeg"))
+                                    backStack.add(RoomsRoute)
                                 }
                             )
                             editorScreenRoute()
+                            roomsRoute(onRoomClick = { /** TODO : 채팅방 상세화면으로 이동 필요 */ })
                         }
                     )
-
                 }
             }
         }
