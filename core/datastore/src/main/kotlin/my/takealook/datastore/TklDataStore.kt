@@ -5,4 +5,6 @@ import kotlinx.coroutines.flow.Flow
 interface TklDataStore {
 
     val accessToken: Flow<String>
+
+    suspend fun setAccessToken(token: String)
 }
