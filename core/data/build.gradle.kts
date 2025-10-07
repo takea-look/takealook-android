@@ -4,4 +4,5 @@ plugins {
 
 dependencies {
     api(projects.core.network)
+    implementation(projects.core.datastore)
 }
