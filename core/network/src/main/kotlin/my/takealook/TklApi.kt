@@ -2,6 +2,7 @@ package my.takealook
 
 import my.takealook.model.StickerCategoryResult
 import my.takealook.model.StickerResult
+import my.takealook.model.UrlResult
 import my.takealook.model.chat.ChatMessageResult
 import my.takealook.model.chat.ChatRoomResult
 import my.takealook.model.login.LoginBody
@@ -42,5 +43,12 @@ interface TklApi {
     @GET("chat/messages")
     suspend fun getChatMessages(
         @Query("roomId") roomId: Long,
+        @Header("accessToken") accessToken: String = "",
     ) : Response<List<ChatMessageResult>>
+
+    @GET("storage/upload")
+    suspend fun getPresignedStorageUrl(
+        @Query("key") path: String,
+        @Header("accessToken") accessToken: String = "",
+    ) : Response<UrlResult>
 }

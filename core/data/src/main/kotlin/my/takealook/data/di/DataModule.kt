@@ -10,6 +10,8 @@ import my.takealook.data.chat.ChatRepository
 import my.takealook.data.chat.DefaultChatRepository
 import my.takealook.data.stickers.DefaultStickerRepository
 import my.takealook.data.stickers.StickerRepository
+import my.takealook.data.storage.DefaultStorageRepository
+import my.takealook.data.storage.StorageRepository
 import javax.inject.Singleton
 
 @Module
@@ -27,4 +29,8 @@ abstract class DataModule {
     @Binds
     @Singleton
     abstract fun bindChatRepository(impl: DefaultChatRepository): ChatRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindStorageRepository(impl: DefaultStorageRepository): StorageRepository
 }
