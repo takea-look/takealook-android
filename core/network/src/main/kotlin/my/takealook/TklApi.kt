@@ -7,12 +7,15 @@ import my.takealook.model.chat.ChatMessageResult
 import my.takealook.model.chat.ChatRoomResult
 import my.takealook.model.login.LoginBody
 import my.takealook.model.login.LoginResponse
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Query
+import retrofit2.http.Url
 
 interface TklApi {
 
@@ -51,4 +54,11 @@ interface TklApi {
         @Query("key") path: String,
         @Header("accessToken") accessToken: String = "",
     ) : Response<UrlResult>
+
+    @PUT
+    suspend fun uploadImage(
+        @Url presignedUrl: String,
+        @Body file: RequestBody,
+        @Header("Content-Type") contentType: String = "image/jpeg"
+    ): Response<Unit>
 }
