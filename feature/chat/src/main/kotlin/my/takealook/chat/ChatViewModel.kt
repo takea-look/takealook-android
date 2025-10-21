@@ -1,16 +1,17 @@
 package my.takealook.chat
 
-import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import my.takealook.domain.GetChatMessagesUseCase
+import my.takealook.domain.UploadImageUseCase
 import my.takealook.presentation.MviViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class ChatViewModel @Inject constructor(
-    private val getChatMessagesUseCase: GetChatMessagesUseCase
+    private val getChatMessagesUseCase: GetChatMessagesUseCase,
+    private val uploadImageUseCase: UploadImageUseCase
 ) : MviViewModel<ChatUiAction, ChatUiState, ChatSideEffect>(
     ChatUiState()
 ) {
@@ -25,6 +26,9 @@ class ChatViewModel @Inject constructor(
                         emit(ChatSideEffect.Error(it.message ?: ""))
                     }
                 emit(ChatSideEffect.Loading(false))
+            }
+            is ChatUiAction.UploadImage -> flow {
+                uploadImageUseCase(action.path, action.bytes)
             }
         }
     }

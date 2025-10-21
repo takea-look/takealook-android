@@ -13,6 +13,7 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import my.takealook.theme.TklTheme
 import dagger.hilt.android.AndroidEntryPoint
+import my.takealook.chat.navigation.ChatRoute
 import my.takealook.chat.navigation.chatRoute
 import my.takealook.editor.navigation.editorScreenRoute
 import my.takealook.login.navigation.LoginRoute
@@ -41,7 +42,11 @@ class MainActivity : ComponentActivity() {
                                 }
                             )
                             editorScreenRoute()
-                            roomsRoute(onRoomClick = { /** TODO : 채팅방 상세화면으로 이동 필요 */ })
+                            roomsRoute(
+                                onRoomClick = {
+                                    backStack.add(ChatRoute)
+                                }
+                            )
                             chatRoute()
                         }
                     )

@@ -1,8 +1,8 @@
 package my.takealook.data.storage
 
-import kotlinx.coroutines.flow.Flow
-
 interface StorageRepository {
 
-    suspend fun getPresignedUrl(path: String): Flow<String>
+    suspend fun getPresignedUrl(path: String): Result<String>
+
+    suspend fun uploadImage(presignedUrl: String, bytes: ByteArray)
 }
