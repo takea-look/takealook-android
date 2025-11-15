@@ -16,7 +16,7 @@ class RetrofitTest {
         .build()
 
     val api = Retrofit.Builder()
-        .baseUrl("https://s1.takealook.my/")
+        .baseUrl(BuildConfig.API_ENDPOINT)
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
