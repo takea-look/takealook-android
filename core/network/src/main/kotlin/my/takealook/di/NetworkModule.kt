@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import my.takealook.BuildConfig
 import my.takealook.TklApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -25,7 +26,7 @@ object NetworkModule {
             .build()
 
         return Retrofit.Builder()
-            .baseUrl("https://s1.takealook.my/")
+            .baseUrl(BuildConfig.API_ENDPOINT)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
