@@ -8,47 +8,33 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import androidx.navigation3.runtime.entryProvider
-import androidx.navigation3.runtime.rememberNavBackStack
-import androidx.navigation3.ui.NavDisplay
+import com.slack.circuit.backstack.rememberSaveableBackStack
+import com.slack.circuit.foundation.Circuit
+import com.slack.circuit.foundation.NavigableCircuitContent
+import com.slack.circuit.foundation.rememberCircuitNavigator
 import my.takealook.theme.TklTheme
 import dagger.hilt.android.AndroidEntryPoint
-import my.takealook.chat.navigation.ChatRoute
-import my.takealook.chat.navigation.chatRoute
-import my.takealook.editor.navigation.editorScreenRoute
-import my.takealook.login.navigation.LoginRoute
-import my.takealook.login.navigation.loginRoute
-import my.takealook.rooms.navigation.RoomsRoute
-import my.takealook.rooms.navigation.roomsRoute
+import jakarta.inject.Inject
+import my.takealook.login.LoginScreen
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @Inject
+    lateinit var circuit: Circuit
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             TklTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    val backStack = rememberNavBackStack(LoginRoute)
-
-                    NavDisplay(
-                        modifier = Modifier.padding(innerPadding),
+                    val backStack = rememberSaveableBackStack(root = LoginScreen)
+                    val navigator = rememberCircuitNavigator(backStack = backStack)
+                    NavigableCircuitContent(
+                        navigator = navigator,
                         backStack = backStack,
-                        onBack = { backStack.removeLastOrNull() },
-                        entryProvider = entryProvider {
-                            loginRoute(
-                                onSignInSuccess = {
-                                    backStack.add(RoomsRoute)
-                                }
-                            )
-                            editorScreenRoute()
-                            roomsRoute(
-                                onRoomClick = {
-                                    backStack.add(ChatRoute)
-                                }
-                            )
-                            chatRoute()
-                        }
+                        modifier = Modifier.padding(innerPadding),
+                        circuit = circuit
                     )
                 }
             }

@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.takealook.android.application.compose)
+    alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
@@ -23,6 +24,10 @@ android {
     }
 }
 
+ksp {
+    arg("circuit.codegen.mode", "hilt")
+}
+
 dependencies {
     // Core
     implementation(projects.core.designsystem)
@@ -37,6 +42,10 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+
+    implementation(libs.circuit.foundation)
+    implementation(libs.circuit.codegen.annotations)
+    ksp(libs.circuit.codegen.compiler)
 
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)

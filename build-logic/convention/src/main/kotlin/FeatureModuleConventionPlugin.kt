@@ -1,3 +1,4 @@
+import my.takealook.configureCircuit
 import my.takealook.configureCoil
 import my.takealook.configureNavigation3
 import org.gradle.api.Plugin
@@ -14,6 +15,7 @@ class FeatureModuleConventionPlugin : Plugin<Project> {
 
             configureNavigation3()
             configureCoil()
+            configureCircuit()
         }
     }
 }
