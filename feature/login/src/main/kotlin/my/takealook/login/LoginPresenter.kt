@@ -13,6 +13,7 @@ import dagger.assisted.AssistedInject
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.launch
 import my.takealook.domain.SignInUseCase
+import my.takealook.editor.EditorScreen
 
 class LoginPresenter @AssistedInject constructor(
     @Assisted private val screen : LoginScreen,
@@ -43,7 +44,7 @@ class LoginPresenter @AssistedInject constructor(
 
                         signInUseCase(userName.value, password.value)
                             .onSuccess { accessToken ->
-//                                navigator.goTo(...)
+                                navigator.goTo(EditorScreen)
                             }
                             .onFailure {
                                 errorMessage.value = it.message ?: ""

@@ -31,6 +31,7 @@ circuit = "0.31.0"
 
 [libraries]
 circuit-foundation = { group = "com.slack.circuit", name = "circuit-foundation", version.ref = "circuit"}
+circuit-circuitx-effects = { group = "com.slack.circuit", name = "circuitx-effects", version.ref = "circuit"}
 circuit-codegen-annotations = { group = "com.slack.circuit", name = "circuit-codegen-annotations", version.ref = "circuit"}
 circuit-codegen-compiler = { group = "com.slack.circuit", name = "circuit-codegen", version.ref = "circuit"}
 
