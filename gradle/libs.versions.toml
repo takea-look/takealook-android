@@ -27,8 +27,14 @@ nav3Core = "1.0.0-alpha06"
 lifecycleViewmodelNav3 = "1.0.0-alpha03"
 kotlinxSerializationCore = "1.9.0"
 material3AdaptiveNav3 = "1.0.0-SNAPSHOT"
+circuit = "0.31.0"
 
 [libraries]
+circuit-foundation = { group = "com.slack.circuit", name = "circuit-foundation", version.ref = "circuit"}
+circuit-circuitx-effects = { group = "com.slack.circuit", name = "circuitx-effects", version.ref = "circuit"}
+circuit-codegen-annotations = { group = "com.slack.circuit", name = "circuit-codegen-annotations", version.ref = "circuit"}
+circuit-codegen-compiler = { group = "com.slack.circuit", name = "circuit-codegen", version.ref = "circuit"}
+
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -81,10 +87,12 @@ android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", ver
 android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
 compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+kspplugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
 [bundles]
 navigation3 = ["androidx-navigation3-runtime", "androidx-navigation3-ui", "androidx-lifecycle-viewmodel-navigation3"]
 retrofit = ["retrofit", "retrofit-converter-gson", "logging-interceptor"]
+circuit = ["circuit-foundation", "circuit-codegen-annotations"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -93,6 +101,7 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 
 # Convention Plugins
 takealook-android-application-compose = { id = "takealook.android.application.compose" }
